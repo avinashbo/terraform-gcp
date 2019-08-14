@@ -1,2 +1,2 @@
 # terraform-gcp
-Terraform files for GCP provisioning
+Sample terraform files for provisioning infrastructure on Google Cloud Platform.
