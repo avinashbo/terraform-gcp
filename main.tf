@@ -13,7 +13,7 @@ resource "google_container_node_pool" "my_node_pool" {
   name       = "my-np"
   location   = "${var.region}"
   cluster    = "${google_container_cluster.my_cluster.name}"
-  node_count = 1
+  node_count = 2
 
   node_config {
     machine_type = "n1-standard-1"
