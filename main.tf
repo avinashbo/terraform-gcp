@@ -2,19 +2,22 @@ provider "google" {
   project     = "terraform-demo-249805"
 }
 
-resource "google_compute_instance" "tf_test" {
+
+resource "google_compute_instance" "tf_test_vm" {
   name         = "tf-test-vm"
   machine_type = "n1-standard-1"
   zone         = "${var.zone}"
 
-  disk {
-    image = "debian-cloud/debian-9"
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-9"
+    }
   }
-  
-  metadata_startup_script = "echo hi > /test_terraform.txt"
+
+  metadata_startup_script = "echo 'Created by Terraform' > /test.txt"
 
   network_interface {
-    subnetwork = "${google_compute_subnetwork.tf-subnet.name}"
+    subnetwork = "${google_compute_subnetwork.tf_subnet.name}"
   }
 }
 
