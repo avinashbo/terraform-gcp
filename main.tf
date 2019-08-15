@@ -1,7 +1,17 @@
 provider "google" {
-  project     = "terraform-demo-249805"
 }
 
+resource "random_id" "suffix" {
+  byte_length = 4
+}
+
+resource "google_project" "project" {
+  name                = "tf-demo-${random_id.suffix.hex}"
+  project_id          = "tf-demo-${random_id.suffix.hex}"
+  org_id              = "${var.org}"
+  billing_account     = "${var.billing_account}"
+  auto_create_network = false
+}
 
 resource "google_compute_instance" "tf_test_vm" {
   name         = "tf-test-vm"
