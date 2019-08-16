@@ -45,3 +45,10 @@ resource "google_compute_subnetwork" "tf_subnet" {
   project       = "${google_project.project.project_id}"
   region        = "${var.region}"
 }
+
+resource "google_storage_bucket" "tf_test_bucket" {
+  name            = "tf-bucket-${random_id.suffix.hex}"
+  location        = "${var.region}"
+  storage_class   = "REGIONAL"
+  project         = "${google_project.project.project_id}"
+}
