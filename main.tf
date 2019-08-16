@@ -28,7 +28,7 @@ resource "google_compute_instance" "tf_test_vm" {
   metadata_startup_script = "echo 'Created by Terraform' > /test.txt"
 
   network_interface {
-    subnetwork = "${google_compute_subnetwork.tf_subnet.name}"
+    subnetwork = "${google_compute_subnetwork.tf_subnet.self_link}"
   }
 }
 
@@ -42,5 +42,6 @@ resource "google_compute_subnetwork" "tf_subnet" {
   name          = "tf-subnet"
   ip_cidr_range = "10.2.0.0/24"
   network       = "${google_compute_network.tf_network.name}"
+  project       = "${google_project.project.project_id}"
   region        = "${var.region}"
 }
