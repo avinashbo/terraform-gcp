@@ -52,3 +52,10 @@ resource "google_storage_bucket" "tf_test_bucket" {
   storage_class   = "REGIONAL"
   project         = "${google_project.project.project_id}"
 }
+
+resource "google_storage_bucket" "tf_test_an_bucket" {
+  name            = "tf-bucket-1-${random_id.suffix.hex}"
+  location        = "${var.region}"
+  storage_class   = "REGIONAL"
+  project         = "${google_project.project.project_id}"
+}
