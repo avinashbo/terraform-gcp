@@ -6,10 +6,6 @@ variable "zone" {
   default = "asia-southeast1-b"
 }
 
-variable "org" {
-  default = "910849363593"
-}
-
-variable "billacc" {
-  default = "01B5B2-30E970-70DACE"
+variable "project-d" {
+  default = "tf-demo-6611774b"
 }
