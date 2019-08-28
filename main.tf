@@ -59,9 +59,9 @@ resource "google_storage_bucket" "tf_test_bucket" {
   project         = "${var.project-id}"
 }
 
-#resource "google_storage_bucket" "tf_test_bucket_2" {
- # name            = "tf-bucket-2-${random_id.suffix.hex}"
-  #location        = "${var.region}"
-  #storage_class   = "REGIONAL"
-  #project         = "${var.project-id}"
-#}
+resource "google_storage_bucket" "tf_test_bucket_2" {
+  name            = "tf-bucket-2-${random_id.suffix.hex}"
+  location        = "${var.region}"
+  storage_class   = "REGIONAL"
+  project         = "${var.project-id}"
+}
