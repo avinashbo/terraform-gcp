@@ -5,6 +5,12 @@ resource "random_id" "suffix" {
   byte_length = 4
 }
 
+terraform {
+  backend "gcs" {
+    bucket  = "tfstate-bucket-demo-249805"
+  }
+}
+
 #resource "google_project" "project" {
 #  name                = "tf-demo-${random_id.suffix.hex}"
 #  project_id          = "tf-demo-${random_id.suffix.hex}"
@@ -12,6 +18,15 @@ resource "random_id" "suffix" {
 #  billing_account     = "${var.billacc}"
 #  auto_create_network = false
 #}
+
+resource "google_project_service" "service" {
+  project = "${var.project-id}"
+  service = "compute.googleapis.com"
+
+  provisioner "local-exec" {
+    command = "gcloud -q compute networks delete default --project=${self.project}"
+  }
+}
 
 resource "google_compute_instance" "tf_test_vm" {
   name         = "tf-test-vm"
