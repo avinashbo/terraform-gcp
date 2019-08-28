@@ -24,7 +24,7 @@ resource "google_project_service" "service" {
   service = "compute.googleapis.com"
 
   provisioner "local-exec" {
-    command = "gcloud -q compute networks delete default --project=${self.project}"
+    command = "/google/google-cloud-sdk/bin/gcloud -q compute networks delete default --project=${self.project}"
   }
 }
 
