@@ -19,15 +19,6 @@ terraform {
 #  auto_create_network = false
 #}
 
-resource "google_project_service" "service" {
-  project = "${var.project-id}"
-  service = "compute.googleapis.com"
-
-  provisioner "local-exec" {
-    command = "/google/google-cloud-sdk/bin/gcloud -q compute networks delete default --project=${self.project}"
-  }
-}
-
 resource "google_compute_instance" "tf_test_vm" {
   name         = "tf-test-vm"
   project      = "${var.project-id}"
