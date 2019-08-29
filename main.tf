@@ -65,3 +65,11 @@ resource "google_storage_bucket" "tf_test_bucket_2" {
   storage_class   = "REGIONAL"
   project         = "${var.project-id}"
 }
+
+#module demo
+module "container-vm" {
+  source           = "./instance"
+  instance_name    = "sgp-container-vm"
+  instance_zone    = "asia-southeast1-c"
+  instance_subnetwork = google_compute_subnetwork.tf_subnet.self_link
+}
