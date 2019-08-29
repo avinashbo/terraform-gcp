@@ -72,5 +72,4 @@ module "container-vm" {
   instance_name    = "sgp-container-vm"
   instance_zone    = "asia-southeast1-c"
   instance_subnetwork = google_compute_subnetwork.tf_subnet.self_link
-  project          = "${var.project-id}"
 }
