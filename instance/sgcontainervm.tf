@@ -4,6 +4,8 @@ variable "instance_type" {
   default = "n1-standard-1"
   }
 variable "instance_subnetwork" {}
+variable "project_id" {
+  default = "tf-demo-6611774b"
 
 resource "google_compute_instance" "vm_instance" {
   name         = "${var.instance_name}"
