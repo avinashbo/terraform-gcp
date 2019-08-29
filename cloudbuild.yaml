@@ -3,5 +3,3 @@ steps:
   args: ['init']
 - name: 'gcr.io/$PROJECT_ID/terraform'
   args: ['plan', '-out=plan.out']
-- name: 'gcr.io/$PROJECT_ID/terraform'
-  args: ['apply', 'plan.out']
