@@ -7,5 +7,5 @@ variable "zone" {
 }
 
 variable "project-id" {
-  default = "tf-demo-6611774b"
+  default = "tf-demo-6611774b-259603"
 }
